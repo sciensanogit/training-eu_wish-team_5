@@ -1,0 +1,50 @@
+---
+title: 'Wastewater-based surveillance report'
+subtitle: "Respiratory viruses"
+author: "Author:Team X"
+format:  
+  html: 
+    toc: true
+    # css: style.css
+    # page-layout: full
+  docx:
+    toc: true
+editor: source
+crossref:
+  fig-title: '**Figure**'
+  fig-labels: arabic
+  title-delim: "**:**"
+execute:
+  echo: false
+  warning: false
+# bibliography: bibli.bib
+# csl: style.csl
+---
+
+```{r}
+#| label: load packages and data
+load(".RData")
+
+library(flextable)
+library(dplyr)
+```
+
+## Intro
+
+Latest results dating of `r format(date_reporting, "%G-W%V")` (`r format(date_reporting, "%d-%m-%Y")`):
+
+-   `r main_text %>% filter(date_week == format(date_reporting, "%G-W%V")) %>% pull(SARS_nation_level_en)`
+
+## National level
+
+Viral concentration of two wastewater treatment plants:
+
+![](./plot/graph_oostende_aalst.png)
+
+## Individual area level
+
+Table of two wastewater treatment plants :
+
+```{r}
+# tbl_nation
+```
